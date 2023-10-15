@@ -129,7 +129,7 @@ public class CadastroPedido extends AppCompatActivity {
                 pedido.setValorTotal(vlrTotal);
                 pedido.setCodigoEndereco(end.getCodigo());
                 int pedidoid = 1 + pc.findAllPedido().size();
-                for(int i = 0; i <= listItemPedido.size(); i++){
+                for(int i = 0; i < listItemPedido.size(); i++){
                     listItemPedido.get(i).setCodigoPedido(pedidoid);
                     pic.salvarItemPedido(listItemPedido.get(i));
                 }

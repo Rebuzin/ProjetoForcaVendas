@@ -22,7 +22,7 @@ public class EnderecoDao implements GenericDao<Endereco>{
     private SQLiteDatabase bd;
 
     //Nome das colunas da tabela
-    private String[]colunas = {"CODIGO", "LOGRADOURO", "BAIRRO", "CIDADE", "UF"};
+    private String[]colunas = {"CODIGO", "LOGRADOURO", "NUMERO", "BAIRRO", "CIDADE", "UF"};
 
     //Nome da tabela
     private String tableName = "ENDERECO";
@@ -126,7 +126,7 @@ public class EnderecoDao implements GenericDao<Endereco>{
     @Override
     public Endereco getById(int id) {
         try {
-            Cursor cursor = bd.query(tableName, colunas, "CODIGO = ?", null, null, null, "CODIGO asc");
+            Cursor cursor = bd.query(tableName, colunas, "CODIGO = " + id, null, null, null, "CODIGO asc");
             if (cursor.moveToFirst()) {
                 Endereco endereco = new Endereco();
                 endereco.setCodigo(cursor.getInt(0));
